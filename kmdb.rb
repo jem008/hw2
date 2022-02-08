@@ -77,14 +77,18 @@
 # Generate models and tables, according to the domain model
 # TODO!
 
+# Note - here I generated them using the command line, because when I tried generating them in the kmdb.rb file, the models wouldn't create.
+# I used the below code in the command line to create the models:
+# rails generate model Movie
+# rails generate model Person
+# rails generate model Role
+
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
 # -- People
-
-puts "There are #{Person.all.count} people."
 
 values = { name: "Christian Bale"}
 ChristianBale = Person.new(values)
@@ -134,11 +138,7 @@ values = { name: "Christopher Nolan"}
 ChristopherNolan = Person.new(values)
 ChristopherNolan.save
 
-puts "There are #{Person.all.count} people."
-
 # -- Movies
-
-puts "There are #{Movie.all.count} movies."
 
 values = { title: "Batman Begins",
         year_released: "2005",
@@ -164,11 +164,7 @@ values = { title: "The Dark Knight Rises",
 Dark_Knight_Rises = Movie.new(values)
 Dark_Knight_Rises.save
 
-puts "There are #{Movie.all.count} movies."
-
 # -- Roles
-
-puts "There are #{Role.all.count} roles."
 
 values = { character_name: "Bruce Wayne",
             movie_id: Batman_Begins.id,
@@ -176,29 +172,11 @@ values = { character_name: "Bruce Wayne",
 BruceWayne_BB = Role.new(values)
 BruceWayne_BB.save
 
-values = { character_name: "Bruce Wayne",
-            movie_id: Dark_Knight.id,
-            actor_id: ChristianBale.id}
-BruceWayne_DK = Role.new(values)
-BruceWayne_DK.save
-
-values = { character_name: "Bruce Wayne",
-            movie_id: Dark_Knight_Rises.id,
-            actor_id: ChristianBale.id}
-BruceWayne_DKR = Role.new(values)
-BruceWayne_DKR.save
-
 values = { character_name: "Alfred",
             movie_id: Batman_Begins.id,
             actor_id: MichaelCaine.id}
 Alfred_BB = Role.new(values)
 Alfred_BB.save
-
-values = { character_name: "Alfred",
-            movie_id: Dark_Knight.id,
-            actor_id: MichaelCaine.id}
-Alfred_DK = Role.new(values)
-Alfred_DK.save
 
 values = { character_name: "Ra's Al Ghul",
             movie_id: Batman_Begins.id,
@@ -212,23 +190,17 @@ values = { character_name: "Rachel Dawes",
 RachelDawes_BB = Role.new(values)
 RachelDawes_BB.save
 
-values = { character_name: "Rachel Dawes",
-            movie_id: Dark_Knight.id,
-            actor_id: MaggieGyllenhaal.id}
-RachelDawes_DK = Role.new(values)
-RachelDawes_DK.save
-
 values = { character_name: "Commissioner Gordon",
             movie_id: Batman_Begins.id,
             actor_id: GaryOldman.id}
 CommGordon_BB = Role.new(values)
 CommGordon_BB.save
 
-values = { character_name: "Commissioner Gordon",
-            movie_id: Dark_Knight_Rises.id,
-            actor_id: GaryOldman.id}
-CommGordon_DKR = Role.new(values)
-CommGordon_DKR.save
+values = { character_name: "Bruce Wayne",
+            movie_id: Dark_Knight.id,
+            actor_id: ChristianBale.id}
+BruceWayne_DK = Role.new(values)
+BruceWayne_DK.save
 
 values = { character_name: "Joker",
             movie_id: Dark_Knight.id,
@@ -241,6 +213,30 @@ values = { character_name: "Harvey Dent",
             actor_id: AaronEckhart.id}
 HarveyDent = Role.new(values)
 HarveyDent.save
+
+values = { character_name: "Alfred",
+            movie_id: Dark_Knight.id,
+            actor_id: MichaelCaine.id}
+Alfred_DK = Role.new(values)
+Alfred_DK.save
+
+values = { character_name: "Rachel Dawes",
+            movie_id: Dark_Knight.id,
+            actor_id: MaggieGyllenhaal.id}
+RachelDawes_DK = Role.new(values)
+RachelDawes_DK.save
+
+values = { character_name: "Bruce Wayne",
+            movie_id: Dark_Knight_Rises.id,
+            actor_id: ChristianBale.id}
+BruceWayne_DKR = Role.new(values)
+BruceWayne_DKR.save
+
+values = { character_name: "Commissioner Gordon",
+            movie_id: Dark_Knight_Rises.id,
+            actor_id: GaryOldman.id}
+CommGordon_DKR = Role.new(values)
+CommGordon_DKR.save
 
 values = { character_name: "Bane",
             movie_id: Dark_Knight_Rises.id,
@@ -260,9 +256,6 @@ values = { character_name: "Selina Kyle",
 SelinaKyle = Role.new(values)
 SelinaKyle.save
 
-puts "There are #{Role.all.count} roles."
-
-
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
@@ -277,11 +270,8 @@ all_roles = Role.all
 
 for movie in all_movies
     director = Person.where({id: movie.director_id})[0]
-    puts "#{movie.title} #{movie.year_released} #{movie.rated} #{director.name}"
+    puts "#{movie.title}      #{movie.year_released}      #{movie.rated}      #{director.name}"
 end
-
-
-
 
 # Prints a header for the cast output
 puts ""
@@ -295,7 +285,7 @@ puts ""
 for role in all_roles
     movie = Movie.where({id: role.movie_id})[0]
     actor = Person.where({id: role.actor_id})[0]
-    puts "#{movie.title} #{actor.name} #{role.character_name}"
+    puts "#{movie.title}      #{actor.name}             #{role.character_name}"
 end
 
 
