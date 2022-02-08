@@ -69,32 +69,37 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-Model.destroy_all
+
+  Movie.destroy_all
+  Person.destroy_all
+  Role.destroy_all
 
 # Generate models and tables, according to the domain model
 # TODO!
-
-rails generate model movies
-class CreateMovies < ActiveRecord::migration
-    def change
-        create_table :movies |t|
-        t.integer :id
-        t.string :title
-        t.integer :year_released
-        t.string :rated
-        t.string :director_id
-        t.timestamps
-    end
-end
-end
-
-rails db:migrate 
-
 
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+puts "There are #{Movie.all.count} movies."
+
+values = { title: "Batman Begins",
+        year_released: "2005",
+        rated: "PG-13",}   
+
+BatmanBegins = Movie.new(values)
+BatmanBegins.save
+
+values = { title: "Batman Begins",
+        year_released: "2005",
+        rated: "PG-13",}   
+
+BatmanBegins = Movie.new(values)
+BatmanBegins.save
+
+puts "There are #{Movie.all.count} movies."
+
 
 # Prints a header for the movies output
 puts "Movies"
