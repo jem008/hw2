@@ -82,6 +82,8 @@
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+# -- Movies
+
 puts "There are #{Movie.all.count} movies."
 
 values = { title: "Batman Begins",
@@ -91,14 +93,113 @@ values = { title: "Batman Begins",
 BatmanBegins = Movie.new(values)
 BatmanBegins.save
 
-values = { title: "Batman Begins",
-        year_released: "2005",
+values = { title: "The Dark Knight",
+        year_released: "2008",
         rated: "PG-13",}   
 
-BatmanBegins = Movie.new(values)
-BatmanBegins.save
+Dark_Knight = Movie.new(values)
+Dark_Knight.save
+
+values = { title: "The Dark Knight Rises",
+        year_released: "2012",
+        rated: "PG-13",}   
+
+DarkKnight = Movie.new(values)
+DarkKnight.save
 
 puts "There are #{Movie.all.count} movies."
+
+# -- People
+
+puts "There are #{Person.all.count} people."
+
+values = { name: "Christian Bale"}
+ChristianBale = Person.new(values)
+ChristianBale.save
+
+values = { name: "Michael Caine"}
+MichaelCaine = Person.new(values)
+MichaelCaine.save
+
+values = { name: "Liam Neeson"}
+LiamNeeson = Person.new(values)
+LiamNeeson.save
+
+values = { name: "Katie Holmes"}
+KatieHolmes = Person.new(values)
+KatieHolmes.save
+
+values = { name: "Gary Oldman"}
+GaryOldman = Person.new(values)
+GaryOldman.save
+
+values = { name: "Heath Ledger"}
+HeathLedger = Person.new(values)
+HeathLedger.save
+
+values = { name: "Aaron Eckhart"}
+AaronEckhart = Person.new(values)
+AaronEckhart.save
+
+values = { name: "Maggie Gyllenhaal"}
+MaggieGyllenhaal = Person.new(values)
+MaggieGyllenhaal.save
+
+values = { name: "Tom Hardy"}
+TomHardy = Person.new(values)
+TomHardy.save
+
+values = { name: "Joseph Gordon-Levitt"}
+JosephGL = Person.new(values)
+JosephGL.save
+
+puts "There are #{Person.all.count} people."
+
+# -- Roles
+
+puts "There are #{Role.all.count} roles."
+
+values = { character_name: "Bruce Wayne"}
+BruceWayne = Role.new(values)
+BruceWayne.save
+
+values = { character_name: "Alfred"}
+Alfred = Role.new(values)
+Alfred.save
+
+values = { character_name: "Ra's Al Ghul"}
+RasAlGhul = Role.new(values)
+RasAlGhul.save
+
+values = { character_name: "Rachel Dawes"}
+RachelDawes = Role.new(values)
+RachelDawes.save
+
+values = { character_name: "Commissioner Gordon"}
+CommGordon = Role.new(values)
+CommGordon.save
+
+values = { character_name: "Joker"}
+Joker = Role.new(values)
+Joker.save
+
+values = { character_name: "Harvey Dent"}
+HarveyDent = Role.new(values)
+HarveyDent.save
+
+values = { character_name: "Bane"}
+Bane = Role.new(values)
+Bane.save
+
+values = { character_name: "John Blake"}
+JohnBlake = Role.new(values)
+JohnBlake.save
+
+values = { character_name: "Selina Kyle"}
+SelinaKyle = Role.new(values)
+SelinaKyle.save
+
+puts "There are #{Role.all.count} roles."
 
 
 # Prints a header for the movies output
