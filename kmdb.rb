@@ -82,6 +82,7 @@
 # rails generate model Movie
 # rails generate model Person
 # rails generate model Role
+# then, to migrate, I used the syntax "rails db:migrate" for each model
 
 
 # Insert data into your database that reflects the sample data shown above
