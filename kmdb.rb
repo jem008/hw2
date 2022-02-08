@@ -82,8 +82,6 @@
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
-
-
 # -- People
 
 puts "There are #{Person.all.count} people."
@@ -272,6 +270,12 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
+
+all_movies = Movie.all
+for movie in all_movies
+    puts "#{movie.title}     #{movie.year_released}   #{movie.rated}   #{movie.director_id}"
+end
+
 
 # Prints a header for the cast output
 puts ""
