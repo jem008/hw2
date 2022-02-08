@@ -173,19 +173,19 @@ puts "There are #{Movie.all.count} movies."
 puts "There are #{Role.all.count} roles."
 
 values = { character_name: "Bruce Wayne",
-            movie_id: Batman_Begins.id
+            movie_id: Batman_Begins.id,
             actor_id: ChristianBale.id}
 BruceWayne_BB = Role.new(values)
 BruceWayne_BB.save
 
 values = { character_name: "Bruce Wayne",
-            movie_id: Dark_Knight.id
+            movie_id: Dark_Knight.id,
             actor_id: ChristianBale.id}
 BruceWayne_DK = Role.new(values)
 BruceWayne_DK.save
 
 values = { character_name: "Bruce Wayne",
-            movie_id: Dark_Knight_Rises.id
+            movie_id: Dark_Knight_Rises.id,
             actor_id: ChristianBale.id}
 BruceWayne_DKR = Role.new(values)
 BruceWayne_DKR.save
