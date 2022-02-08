@@ -286,7 +286,7 @@ puts ""
 for role in all_roles
     movie = Movie.where({id: role.movie_id})[0]
     actor = Person.where({id: role.actor_id})[0]
-    puts "#{movie.title}      #{actor.name}             #{role.character_name}"
+    puts "#{movie.title}        #{actor.name}             #{role.character_name}"
 end
 
 
